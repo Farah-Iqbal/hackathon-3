@@ -5,7 +5,6 @@ import Ourinsta from "@/components/Ourinsta";
 import Proddetail from "@/components/proddetail";
 import Toppicks from "@/components/Toppics";
 import Twoproduct from "@/components/Twoproducts";
-import Image from "next/image";
 
 export default function Home() {
   return (

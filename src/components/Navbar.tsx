@@ -8,7 +8,12 @@ import { CiSearch, CiHeart } from "react-icons/ci";
 import { TbMenu4 } from "react-icons/tb";
 import { GiCrossedSabres } from "react-icons/gi";
 
-const Navbar = (props:any) => {
+// Define the props type
+type NavbarProps = {
+  bgColor: string; // bgColor is a string, most likely a class name
+};
+
+const Navbar = ({ bgColor }: NavbarProps) => {
   const [isClick, setisClick] = useState(false);
 
   const toggleNavbar = (): void => {
@@ -17,14 +22,13 @@ const Navbar = (props:any) => {
 
   return (
     <main>
-      <header className={`text-gray-600 ${props.bgColor} body-font `}>
-        <div className="container mx-auto flex flex-wrap  p-5 flex-col md:flex-row items-center justify-between  ">
+      <header className={`text-gray-600 ${bgColor} body-font `}>
+        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
           <Link
             href={"/"}
             className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
           >
             <MdChair className="w-10 h-10 text-orange-300 p-2 bg-gray-500 rounded-t-full" />
-
             <span className="ml-3 text-xl">Home Furnishing</span>
           </Link>
           <nav className="md:block md:ml-auto flex flex-wrap md:space-x-14 md:mr-16 items-center text-base justify-center">
@@ -39,44 +43,40 @@ const Navbar = (props:any) => {
             </Link>
           </nav>
 
-          <div className=" lg:block">
-            <div className=" w-[70%] sm:w-[247px] h-[28px] top-[36px] left-[1093px] flex gap-x-10">
-              <span className="  xs:visible w-[28px]  h-[28px] top-[36px] left-[1093px] text-[35px]">
-                {" "}
+          <div className="lg:block">
+            <div className="w-[70%] sm:w-[247px] h-[28px] top-[36px] left-[1093px] flex gap-x-10">
+              <span className="xs:visible w-[28px] h-[28px] top-[36px] left-[1093px] text-[35px]">
                 <Link href={"myaccount"}>
-                  {" "}
-                  <MdManageAccounts />{" "}
-                </Link>{" "}
+                  <MdManageAccounts />
+                </Link>
               </span>
-              <span className="  xs:visible w-[28px]  h-[28px] top-[36px] left-[1093px] text-[35px] ">
+              <span className="xs:visible w-[28px] h-[28px] top-[36px] left-[1093px] text-[35px]">
                 <CiSearch />
               </span>
-              <span className=" xs:visible w-[28px]  h-[28px] top-[36px] left-[1093px] text-[35px]">
-                {" "}
+              <span className="xs:visible w-[28px] h-[28px] top-[36px] left-[1093px] text-[35px]">
                 <Link href={"/checkouts"}>
-                  {" "}
-                  <CiHeart />{" "}
-                </Link>{" "}
+                  <CiHeart />
+                </Link>
               </span>
-              <span className=" invisible xs:visible w-[28px]  h-[28px] top-[36px] left-[1093px] text-[35px]">
-                {" "}
+              <span className="invisible xs:visible w-[28px] h-[28px] top-[36px] left-[1093px] text-[35px]">
                 <Link href={"/cart"}>
-                  {" "}
-                  <MdOutlineShoppingCart />{" "}
-                </Link>{" "}
+                  <MdOutlineShoppingCart />
+                </Link>
               </span>
             </div>
           </div>
-          {/* menu button  */}
-          <div className="md:hidden flex items-center  w-8 -mr-[320px] -mt-[50px] md:-ml-0 md:-mr-0">
+
+          {/* Menu button */}
+          <div className="md:hidden flex items-center w-8 -mr-[320px] -mt-[50px] md:-ml-0 md:-mr-0">
             <button
-              className="inline-flex items-center justify-center text-2xl p-2 rounded-md text-black  hover:text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center text-2xl p-2 rounded-md text-black hover:text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               onClick={toggleNavbar}
             >
               {isClick ? <GiCrossedSabres /> : <TbMenu4 />}
             </button>
           </div>
         </div>
+
         {isClick && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-2 sm:px-3">
@@ -90,18 +90,15 @@ const Navbar = (props:any) => {
                 Contact
               </Link>
               <div className="flex gap-4 text-xl">
-              <Link href={"myaccount"}>
-                  {" "}
-                  <MdManageAccounts />{" "}
-                </Link>{" "}
-                <Link href={"/checkouts"} className="">
-                  {" "}
-                  <CiHeart />{" "}
-                </Link>{" "}
+                <Link href={"myaccount"}>
+                  <MdManageAccounts />
+                </Link>
+                <Link href={"/checkouts"}>
+                  <CiHeart />
+                </Link>
                 <Link href={"/cart"}>
-                  {" "}
-                  <MdOutlineShoppingCart />{" "}
-                </Link>{" "}
+                  <MdOutlineShoppingCart />
+                </Link>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Image from "next/image";
 const CartSlider = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,10 +33,12 @@ const CartSlider = () => {
         {/* Cart Items */}
         <div className="p-4 space-y-4">
           <div className="flex items-center space-x-4">
-            <img
+            <Image
               src="/sofa.jpg" // Replace with your image path
               alt="Asgaard Sofa"
-              className="w-16 h-16 object-cover rounded"
+              width={64}
+              height={64}
+              className=" object-cover rounded"
             />
             <div>
               <h3 className="text-sm font-medium">Asgaard Sofa</h3>
@@ -46,6 +48,7 @@ const CartSlider = () => {
         </div>
 
         {/* Footer */}
+
         <div className="p-4 border-t">
           <div className="flex justify-between items-center mb-4">
             <span className="text-lg font-bold">Subtotal:</span>

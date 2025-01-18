@@ -1,8 +1,6 @@
 import Shophead from "@/components/Shophead";
 import Image from "next/image";
 import React from "react";
-import { PiCirclesFourFill } from "react-icons/pi";
-import { MdOutlineViewDay } from "react-icons/md";
 import Delivery from "@/components/Delivery";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
